@@ -6,6 +6,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+
+import javax.management.RuntimeErrorException;
 
 import com.frankmoley.lil.learningspring.data.Guest;
 import com.frankmoley.lil.learningspring.data.GuestRepository;
@@ -78,6 +81,21 @@ public class ReservationService {
             }
         });
         return guestList;
+    }
+    
+    public Guest addGuest(Guest newGuest) {
+    	if (newGuest == null) {
+    		throw new RuntimeException("Can not be null");
+    	}
+    	System.out.println("GUEST SUCCESSFULLY CREATED");
+    	return guestRepository.save(newGuest);
+    	
+    }
+    
+    public Optional<Guest> findGuestById(long guestId) {
+    	
+    	//return guestRepository.getById(guestId);
+    	return guestRepository.findById(guestId);
     }
 
 }
