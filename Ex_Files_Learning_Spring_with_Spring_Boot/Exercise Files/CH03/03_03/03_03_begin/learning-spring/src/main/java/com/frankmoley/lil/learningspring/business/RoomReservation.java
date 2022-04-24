@@ -2,6 +2,10 @@ package com.frankmoley.lil.learningspring.business;
 
 import java.util.Date;
 
+
+
+
+// this is a DTO -- data transfer Object
 public class RoomReservation {
     private long roomId;
     private long guestId;

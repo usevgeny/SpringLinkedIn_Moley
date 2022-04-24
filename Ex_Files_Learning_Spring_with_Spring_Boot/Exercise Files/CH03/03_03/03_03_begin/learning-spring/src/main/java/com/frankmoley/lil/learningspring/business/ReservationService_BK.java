@@ -18,21 +18,14 @@ import com.frankmoley.lil.learningspring.data.Room;
 import com.frankmoley.lil.learningspring.data.RoomRepository;
 
 @Service
-public class ReservationService {
+public class ReservationService_BK {
 	
-
-    private final RoomRepository roomRepository;
-	
-    private final GuestRepository guestRepository;
-	
-    private final ReservationRepository reservationRepository;
-    
-    public ReservationService(RoomRepository roomRepository, GuestRepository guestRepository, ReservationRepository reservationRepository) {
-    	
-    	this.roomRepository=roomRepository;
-    	this.guestRepository=guestRepository;
-    	this.reservationRepository=reservationRepository;
-    };
+	@Autowired
+    private RoomRepository roomRepository;
+	@Autowired
+    private GuestRepository guestRepository;
+	@Autowired
+    private ReservationRepository reservationRepository;
 
     public List<RoomReservation> getRoomReservationsForDate(Date date) {
         Iterable<Room> rooms = this.roomRepository.findAll();
